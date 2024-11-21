@@ -66,7 +66,8 @@ namespace Ambev.DeveloperEvaluation.WebApi.Migrations
                     SaleDate = table.Column<DateTime>(type: "timestamp with time zone", nullable: false),
                     CustomerId = table.Column<Guid>(type: "uuid", nullable: false),
                     BranchId = table.Column<Guid>(type: "uuid", nullable: false),
-                    Cancelled = table.Column<bool>(type: "boolean", nullable: false)
+                    Cancelled = table.Column<bool>(type: "boolean", nullable: false),
+                    TotalAmout = table.Column<decimal>(type: "numeric", nullable: false)
                 },
                 constraints: table =>
                 {

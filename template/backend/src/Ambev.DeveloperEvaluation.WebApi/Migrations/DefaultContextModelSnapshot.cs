@@ -84,6 +84,9 @@ namespace Ambev.DeveloperEvaluation.WebApi.Migrations
                         .IsRequired()
                         .HasColumnType("text");
 
+                    b.Property<decimal>("TotalAmout")
+                        .HasColumnType("numeric");
+
                     b.HasKey("Id");
 
                     b.HasIndex("BranchId");
