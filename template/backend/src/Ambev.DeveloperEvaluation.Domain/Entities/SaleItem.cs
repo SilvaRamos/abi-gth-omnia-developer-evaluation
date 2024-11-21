@@ -26,6 +26,32 @@ public class SaleItem : BaseEntity
 
     public SaleItem()
     {
-        TotalAmount  =  ( Quantitie * Price ) - Discount;
+        AplicaDescontosPorItem();
+        CalculaValorTotalPorItem();
+    }
+    public void AplicaDescontosPorItem()
+    {
+        //10% de desconto (4+ items: 10% discount)
+        if (Quantitie >= 4 && Quantitie < 10)
+        {
+            //desconta 10% do preço original
+            decimal precoComDesconto = Price * 0.9M;
+
+            //TotalAmount = precoComDesconto * precoComDesconto;
+        }
+
+        //20% de desconto (10-20 items: 20% discount)
+        if (Quantitie >= 10 && Quantitie <= 20)
+        {
+            //desconta 20% do preço original
+            decimal precoComDesconto = Price * 0.8M;
+
+            //TotalAmount = precoComDesconto * precoComDesconto;
+        }
+    }
+
+    public void CalculaValorTotalPorItem()
+    {
+        TotalAmount = (Quantitie * Price);
     }
 }

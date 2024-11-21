@@ -60,7 +60,6 @@ namespace Ambev.DeveloperEvaluation.ORM.Repositories
         public async Task<Sale?> GetBySaleNumberAsync(string saleNumber, CancellationToken cancellationToken = default)
         {
             return await _context.Sales
-                .Include(v => v.SaleItems) 
                 .FirstOrDefaultAsync(v => v.SaleNumber == saleNumber, cancellationToken);
         }
  

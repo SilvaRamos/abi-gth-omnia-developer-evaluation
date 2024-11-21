@@ -27,11 +27,26 @@ public class Sale : BaseEntity
 
     public bool Cancelled { get; set; }
 
+    public decimal TotalAmout { get; set; }
+
     public Sale()
     {
         SaleDate    = DateTime.UtcNow;
         SaleItems   = new List<SaleItem>();
         Customer    = new Customer();
         Branch      = new Branch();
+        CalculaValorTotalDaCompra();
+    }
+
+    public void CalculaValorTotalDaCompra()
+    {
+        decimal valorTotalDaCompra = 0.0M;
+
+        foreach(var item in SaleItems)
+        {
+            valorTotalDaCompra += item.TotalAmount;
+        }
+
+        TotalAmout = valorTotalDaCompra;
     }
 }
